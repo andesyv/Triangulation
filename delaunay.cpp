@@ -26,6 +26,7 @@ std::vector<Triangle> Delaunay::Triangulate(std::vector<gsl::Vector3D> vertices)
         return a.first.x < b.first.x || (std::abs(a.first.x - b.first.x) < std::numeric_limits<float>::epsilon() && a.first.y < b.first.y);
     });
 
+    // Since vertices are atleast 3, outline must consist of atleast 3 points.
     auto outline = convex_hull(vertexAndIndex);
 
 //    auto A = makeTriangles(outline);
